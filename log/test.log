@@ -19041,3 +19041,96 @@ Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.4ms)[0m  INSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Daft Punk"], ["created_at", "2018-03-23 17:36:33.311484"], ["updated_at", "2018-03-23 17:36:33.311484"]]
   [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "songs" ("title", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Grid"], ["artist_id", 30], ["created_at", "2018-03-23 17:36:33.362449"], ["updated_at", "2018-03-23 17:36:33.362449"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+Started GET "/songs/new" for 127.0.0.1 at 2018-03-23 17:36:33 +0000
+Processing by SongsController#new as HTML
+  Rendered songs/_form.html.erb (21.7ms)
+  Rendered songs/new.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 195ms (Views: 194.8ms | ActiveRecord: 0.0ms)
+Started POST "/songs" for 127.0.0.1 at 2018-03-23 17:36:33 +0000
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "song"=>{"title"=>"Birdhouse In Your Soul", "artist_name"=>"TMBG", "album_cover"=>#<ActionDispatch::Http::UploadedFile:0x00000008cd0a20 @tempfile=#<Tempfile:/tmp/RackMultipart20180323-2137-ms6z6d.gif>, @original_filename="homer.gif", @content_type="image/gif", @headers="Content-Disposition: form-data; name=\"song[album_cover]\"; filename=\"homer.gif\"\r\nContent-Type: image/gif\r\nContent-Length: 1845619\r\n">}, "commit"=>"Create Song"}
+  [1m[36mArtist Load (0.3ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."name" = ? LIMIT 1[0m  [["name", "TMBG"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "TMBG"], ["created_at", "2018-03-23 17:36:33.631079"], ["updated_at", "2018-03-23 17:36:33.631079"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+[paperclip] Trying to link /tmp/RackMultipart20180323-2137-ms6z6d.gif to /tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-pn4j5k.gif
+[paperclip] Trying to link /tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-pn4j5k.gif to /tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-nrtx8t.gif
+Command :: file -b --mime '/tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-nrtx8t.gif'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-pn4j5k.gif[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-pn4j5k.gif[0]'
+Command :: convert '/tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-pn4j5k.gif' -coalesce -auto-orient -resize "300x300>" -layers "optimize" '/tmp/8820fcea77bff5fa2b95ca5dcd6f12b420180323-2137-pmvsy5'
+[paperclip] Trying to link /tmp/8820fcea77bff5fa2b95ca5dcd6f12b420180323-2137-pmvsy5 to /tmp/f12070bb16236b574403f0c3b62042fe20180323-2137-c0l449
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-pn4j5k.gif[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-pn4j5k.gif[0]'
+Command :: convert '/tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-pn4j5k.gif' -coalesce -auto-orient -resize "100x100>" -layers "optimize" '/tmp/8820fcea77bff5fa2b95ca5dcd6f12b420180323-2137-18i9b05'
+[paperclip] Trying to link /tmp/8820fcea77bff5fa2b95ca5dcd6f12b420180323-2137-18i9b05 to /tmp/122bdc6d46e2b287168a262914172cc120180323-2137-1coyqn2
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[paperclip] Trying to link /tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-pn4j5k.gif to /tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-1lqb0c0.gif
+Command :: file -b --mime '/tmp/dfa8327f5bfa4c672a04f9b38e348a7020180323-2137-1lqb0c0.gif'
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "songs" ("title", "artist_id", "album_cover_file_name", "album_cover_content_type", "album_cover_file_size", "album_cover_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Birdhouse In Your Soul"], ["artist_id", 31], ["album_cover_file_name", "homer.gif"], ["album_cover_content_type", "image/gif"], ["album_cover_file_size", 1845619], ["album_cover_updated_at", "2018-03-23 17:36:33.636734"], ["created_at", "2018-03-23 17:36:37.347240"], ["updated_at", "2018-03-23 17:36:37.347240"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://www.example.com/songs/39
+Completed 302 Found in 3741ms (ActiveRecord: 6.0ms)
+Started GET "/songs/39" for 127.0.0.1 at 2018-03-23 17:36:37 +0000
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[35mSong Load (0.2ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 39]]
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 31]]
+  Rendered songs/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+  [1m[35mArtist Load (0.1ms)[0m  SELECT "artists".* FROM "artists"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "artists" WHERE "artists"."id" = ?  [["id", 30]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "artists" WHERE "artists"."id" = ?[0m  [["id", 31]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mSong Load (0.2ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "songs" WHERE "songs"."id" = ?[0m  [["id", 38]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "songs" WHERE "songs"."id" = ?  [["id", 39]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+[paperclip] deleting /home/andreanasuto/rails-paperclip-lab-v-000/public/system/songs/album_covers/000/000/039/original/homer.gif
+[paperclip] deleting /home/andreanasuto/rails-paperclip-lab-v-000/public/system/songs/album_covers/000/000/039/medium/homer.gif
+[paperclip] deleting /home/andreanasuto/rails-paperclip-lab-v-000/public/system/songs/album_covers/000/000/039/thumb/homer.gif
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Daft Punk"], ["created_at", "2018-03-23 17:36:37.390771"], ["updated_at", "2018-03-23 17:36:37.390771"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "songs" ("title", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "The Grid"], ["artist_id", 32], ["created_at", "2018-03-23 17:36:37.396082"], ["updated_at", "2018-03-23 17:36:37.396082"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Started GET "/songs/40" for 127.0.0.1 at 2018-03-23 17:36:37 +0000
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[35mSong Load (0.1ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 40]]
+  [1m[36mArtist Load (0.1ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 32]]
+  Rendered songs/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+  [1m[35mArtist Load (0.2ms)[0m  SELECT "artists".* FROM "artists"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "artists" WHERE "artists"."id" = ?  [["id", 32]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "songs" WHERE "songs"."id" = ?  [["id", 40]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Daft Punk"], ["created_at", "2018-03-23 17:36:37.414435"], ["updated_at", "2018-03-23 17:36:37.414435"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "songs" ("title", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "The Grid"], ["artist_id", 33], ["created_at", "2018-03-23 17:36:37.418863"], ["updated_at", "2018-03-23 17:36:37.418863"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "songs" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Policy of Truth"], ["created_at", "2018-03-23 17:36:37.422853"], ["updated_at", "2018-03-23 17:36:37.422853"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Started GET "/songs/42" for 127.0.0.1 at 2018-03-23 17:36:37 +0000
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mSong Load (0.1ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 42]]
+  Rendered songs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms)
