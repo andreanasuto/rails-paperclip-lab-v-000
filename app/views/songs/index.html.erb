@@ -2,7 +2,7 @@
 <% @songs.each do |song| %>
   <li><%= display_artist(song) %> - <%= link_to song.title, song_path(song) %></li>
 <% end %>
-  <li> <%= image_tag @song.album_cover.url(:medium) %></li>
+  <li> <%= image_tag @song.album_cover.url(:thumb) %></li>
 </ul>
 <br>
 <%= link_to "Add New Song", new_song_path %>
